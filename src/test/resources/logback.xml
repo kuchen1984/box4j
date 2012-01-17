@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>[%5p] %d{HH:mm:ss} %c{1} -- %m%n</Pattern>
+        </layout>
+    </appender>
+    <root>
+        <level value="DEBUG"/>
+        <appender-ref ref="CONSOLE"/>
+        <!-- 
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="ERRORFILE"/>
+         -->
+    </root>
+
+    <logger name="org.apache.commons.httpclient.HttpClient">
+        <level value="INFO"/>
+    </logger>
+    <logger name="httpclient.wire.content">
+        <level value="DEBUG"/>
+    </logger>
+    <logger name="httpclient.wire.header">
+        <level value="DEBUG"/>
+    </logger>
+
+</configuration>
