@@ -30,6 +30,7 @@ import org.apache.log4j.Logger;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.io.SAXReader;
+import org.mindtask.cloudsync.util.UriUtil;
 import org.xml.sax.InputSource;
 
 import cn.com.believer.songyuanframework.openapi.storage.box.constant.BoxConstant;
@@ -230,6 +231,7 @@ public final class BoxHTTPManager {
      */
     public Document doGet(String url) throws IOException, DocumentException {
         Document result = null;
+        url = UriUtil.encodeParam(url);
         long t1 = System.currentTimeMillis();
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("##### doGet-start  #####, url=" + url);
@@ -270,6 +272,7 @@ public final class BoxHTTPManager {
      */
     public byte[] doGetByteArry(String url) throws IOException {
         byte[] result = null;
+        url = UriUtil.encodeParam(url);
         long t1 = System.currentTimeMillis();
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("##### doGet-start  #####, url=" + url);
@@ -303,6 +306,7 @@ public final class BoxHTTPManager {
      *             IO exception
      */
     public File doGetFile(String url, File inFile) throws IOException {
+    	url = UriUtil.encodeParam(url);
         long t1 = System.currentTimeMillis();
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("##### doGet-start  #####, url=" + url);
