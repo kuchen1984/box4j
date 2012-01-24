@@ -447,6 +447,9 @@ public class BoxConstant {
     public static final String STATUS_S_MOVE_NODE = "s_move_node";
 
     /** status code. */
+    public static final String STATUS_S_COPY_NODE = "s_copy_node";
+
+    /** status code. */
     public static final String STATUS_S_RENAME_NODE = "s_rename_node";
 
     /** status code. */
