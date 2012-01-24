@@ -9,226 +9,148 @@ import cn.com.believer.songyuanframework.openapi.storage.box.objects.BoxFile;
  * @author Jimmy
  * 
  */
-public class BoxFileImpl implements BoxFile {
+public class BoxFileImpl extends BoxAbstractFileImpl implements BoxFile {
 
-    /**
+	/**
      * 
      */
-    private static final long serialVersionUID = -7282178963330936208L;
+	private static final long serialVersionUID = -7282178963330936208L;
 
-    /** file id. */
-    private String fileId;
+	/** shared name. */
+	private String sharedName;
 
-    /** file name. */
-    private String fileName;
+	/** file description. */
+	private String description;
 
-    /** folder id. */
-    private String folderId;
+	/** sha1 value, used to verify file content. */
+	private String sha1;
 
-    /** shared flag. */
-    private boolean shared;
+	/** user id of the one who created this file. */
+	private String createdBy;
 
-    /** shared name. */
-    private String sharedName;
+	/** user id of the one who updated this file. */
+	private String updatedBy;
 
-    /** file size. */
-    private long size;
+	/**
+	 * @return the fileId
+	 */
+	public String getFileId() {
+		return getId();
+	}
 
-    /** file description. */
-    private String description;
+	/**
+	 * @param fileId the fileId to set
+	 */
+	public void setFileId(String fileId) {
+		setId(fileId);
+	}
 
-    /** sha1 value, used to verify file content. */
-    private String sha1;
+	/**
+	 * @return the fileName
+	 */
+	public String getFileName() {
+		return getName();
+	}
 
-    /** created time. */
-    private long created;
+	/**
+	 * @param fileName the fileName to set
+	 */
+	public void setFileName(String fileName) {
+		setName(fileName);
+	}
 
-    /** updated time. */
-    private long updated;
+	/**
+	 * @return the folderId
+	 */
+	public String getFolderId() {
+		return getParentId();
+	}
 
-    /** user id of the one who created this file. */
-    private String createdBy;
+	/**
+	 * @param folderId the folderId to set
+	 */
+	public void setFolderId(String folderId) {
+		setParentId(folderId);
+	}
 
-    /** user id of the one who updated this file. */
-    private String updatedBy;
+	/**
+	 * @return the sharedName
+	 */
+	public String getSharedName() {
+		return this.sharedName;
+	}
 
-    /**
-     * @return the fileId
-     */
-    public String getFileId() {
-        return this.fileId;
-    }
+	/**
+	 * @param sharedName the sharedName to set
+	 */
+	public void setSharedName(String sharedName) {
+		this.sharedName = sharedName;
+	}
 
-    /**
-     * @param fileId
-     *            the fileId to set
-     */
-    public void setFileId(String fileId) {
-        this.fileId = fileId;
-    }
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return this.description;
+	}
 
-    /**
-     * @return the fileName
-     */
-    public String getFileName() {
-        return this.fileName;
-    }
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-    /**
-     * @param fileName
-     *            the fileName to set
-     */
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
+	/**
+	 * @return the sha1
+	 */
+	public String getSha1() {
+		return this.sha1;
+	}
 
-    /**
-     * @return the folderId
-     */
-    public String getFolderId() {
-        return this.folderId;
-    }
+	/**
+	 * @param sha1 the sha1 to set
+	 */
+	public void setSha1(String sha1) {
+		this.sha1 = sha1;
+	}
 
-    /**
-     * @param folderId
-     *            the folderId to set
-     */
-    public void setFolderId(String folderId) {
-        this.folderId = folderId;
-    }
+	/**
+	 * @return the createdBy
+	 */
+	public String getCreatedBy() {
+		return this.createdBy;
+	}
 
-    /**
-     * @return the shared
-     */
-    public boolean isShared() {
-        return this.shared;
-    }
+	/**
+	 * @param createdBy the createdBy to set
+	 */
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
 
-    /**
-     * @param shared
-     *            the shared to set
-     */
-    public void setShared(boolean shared) {
-        this.shared = shared;
-    }
+	/**
+	 * @return the updatedBy
+	 */
+	public String getUpdatedBy() {
+		return this.updatedBy;
+	}
 
-    /**
-     * @return the sharedName
-     */
-    public String getSharedName() {
-        return this.sharedName;
-    }
+	/**
+	 * @param updatedBy the updatedBy to set
+	 */
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
 
-    /**
-     * @param sharedName
-     *            the sharedName to set
-     */
-    public void setSharedName(String sharedName) {
-        this.sharedName = sharedName;
-    }
+	@Override
+	public boolean isFolder() {
+		return false;
+	}
 
-    /**
-     * @return the size
-     */
-    public long getSize() {
-        return this.size;
-    }
+	@Override
+	public void setFolder(boolean isFolder) {
+		setFolder(false);
+	}
 
-    /**
-     * @param size
-     *            the size to set
-     */
-    public void setSize(long size) {
-        this.size = size;
-    }
-
-    /**
-     * @return the description
-     */
-    public String getDescription() {
-        return this.description;
-    }
-
-    /**
-     * @param description
-     *            the description to set
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    /**
-     * @return the sha1
-     */
-    public String getSha1() {
-        return this.sha1;
-    }
-
-    /**
-     * @param sha1
-     *            the sha1 to set
-     */
-    public void setSha1(String sha1) {
-        this.sha1 = sha1;
-    }
-
-    /**
-     * @return the created
-     */
-    public long getCreated() {
-        return this.created;
-    }
-
-    /**
-     * @param created
-     *            the created to set
-     */
-    public void setCreated(long created) {
-        this.created = created;
-    }
-
-    /**
-     * @return the updated
-     */
-    public long getUpdated() {
-        return this.updated;
-    }
-
-    /**
-     * @param updated
-     *            the updated to set
-     */
-    public void setUpdated(long updated) {
-        this.updated = updated;
-    }
-
-    /**
-     * @return the createdBy
-     */
-    public String getCreatedBy() {
-        return this.createdBy;
-    }
-
-    /**
-     * @param createdBy
-     *            the createdBy to set
-     */
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    /**
-     * @return the updatedBy
-     */
-    public String getUpdatedBy() {
-        return this.updatedBy;
-    }
-
-    /**
-     * @param updatedBy
-     *            the updatedBy to set
-     */
-    public void setUpdatedBy(String updatedBy) {
-        this.updatedBy = updatedBy;
-    }
 }

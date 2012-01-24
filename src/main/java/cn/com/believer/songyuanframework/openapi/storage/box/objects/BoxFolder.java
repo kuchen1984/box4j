@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @author Jimmy
  * 
  */
-public interface BoxFolder extends Serializable {
+public interface BoxFolder extends BoxAbstractFile, Serializable {
 
     /**
      * @return the folderId

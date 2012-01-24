@@ -22,6 +22,9 @@ public class BoxAbstractFileImpl implements BoxAbstractFile {
     /** file id or folder id. */
     private String id;
 
+    /** parent id of this file/folder */
+    private String parentId;
+
     /** file name or folder name. */
     private String name;
 
@@ -181,12 +184,23 @@ public class BoxAbstractFileImpl implements BoxAbstractFile {
         this.tags = tags;
     }
 
+    @Override
+    public String getParentId() {
+    	return this.parentId;
+    }
+
+    @Override
+    public void setParentId(String parentId) {
+    	this.parentId = parentId;
+    }
+
     /**
      * @return string.
      */
     public String toString() {
         StringBuffer sb = new StringBuffer();
         sb.append("id=" + id + "  ");
+        sb.append("parentId=" + parentId + "  ");
         sb.append("name=" + name + "  ");
         sb.append("keyword=" + keyword + "  ");
         sb.append("shared=" + shared + "  ");

@@ -9,226 +9,216 @@ import cn.com.believer.songyuanframework.openapi.storage.box.objects.BoxFolder;
  * @author Jimmy
  * 
  */
-public class BoxFolderImpl implements BoxFolder {
+public class BoxFolderImpl extends BoxAbstractFileImpl implements BoxFolder {
 
-    /**
+	/**
      * 
      */
-    private static final long serialVersionUID = -3688421474186239469L;
+	private static final long serialVersionUID = -3688421474186239469L;
 
-    /** folder id. */
-    private String folderId;
+	/** folder type id. */
+	private String folderTypeId;
 
-    /** folder name. */
-    private String folderName;
+	/** user id. */
+	private String userId;
 
-    /** folder type id. */
-    private String folderTypeId;
+	/** path. */
+	private String path;
 
-    /** user id. */
-    private String userId;
+	/** folder share flag. */
+	private String shared;
 
-    /** path. */
-    private String path;
+	/** public name. */
+	private String publicName;
 
-    /** folder share flag. */
-    private String shared;
+	/** show comments. */
+	private String showComments;
 
-    /** public name. */
-    private String publicName;
+	/** password to access this folder. */
+	private String password;
 
-    /** show comments. */
-    private String showComments;
+	/** checksum. */
+	private String checksum;
 
-    /** parent folder id. */
-    private String parentFolderId;
+	/** if have collaborators. */
+	private String hasCollaborators;
 
-    /** password to access this folder. */
-    private String password;
+	/**
+	 * @return the folderId
+	 */
+	public String getFolderId() {
+		return getId();
+	}
 
-    /** checksum. */
-    private String checksum;
+	/**
+	 * @param folderId the folderId to set
+	 */
+	public void setFolderId(String folderId) {
+		setId(folderId);
+	}
 
-    /** if have collaborators. */
-    private String hasCollaborators;
+	/**
+	 * @return the folderName
+	 */
+	public String getFolderName() {
+		return getName();
+	}
 
-    /**
-     * @return the folderId
-     */
-    public String getFolderId() {
-        return this.folderId;
-    }
+	/**
+	 * @param folderName the folderName to set
+	 */
+	public void setFolderName(String folderName) {
+		setName(folderName);
+	}
 
-    /**
-     * @param folderId
-     *            the folderId to set
-     */
-    public void setFolderId(String folderId) {
-        this.folderId = folderId;
-    }
+	/**
+	 * @return the folderTypeId
+	 */
+	public String getFolderTypeId() {
+		return this.folderTypeId;
+	}
 
-    /**
-     * @return the folderName
-     */
-    public String getFolderName() {
-        return this.folderName;
-    }
+	/**
+	 * @param folderTypeId the folderTypeId to set
+	 */
+	public void setFolderTypeId(String folderTypeId) {
+		this.folderTypeId = folderTypeId;
+	}
 
-    /**
-     * @param folderName
-     *            the folderName to set
-     */
-    public void setFolderName(String folderName) {
-        this.folderName = folderName;
-    }
+	/**
+	 * @return the userId
+	 */
+	public String getUserId() {
+		return this.userId;
+	}
 
-    /**
-     * @return the folderTypeId
-     */
-    public String getFolderTypeId() {
-        return this.folderTypeId;
-    }
+	/**
+	 * @param userId the userId to set
+	 */
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 
-    /**
-     * @param folderTypeId
-     *            the folderTypeId to set
-     */
-    public void setFolderTypeId(String folderTypeId) {
-        this.folderTypeId = folderTypeId;
-    }
+	/**
+	 * @return the path
+	 */
+	public String getPath() {
+		return this.path;
+	}
 
-    /**
-     * @return the userId
-     */
-    public String getUserId() {
-        return this.userId;
-    }
+	/**
+	 * @param path the path to set
+	 */
+	public void setPath(String path) {
+		this.path = path;
+	}
 
-    /**
-     * @param userId
-     *            the userId to set
-     */
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+	/**
+	 * @return the shared
+	 */
+	public String getShared() {
+		return this.shared;
+	}
 
-    /**
-     * @return the path
-     */
-    public String getPath() {
-        return this.path;
-    }
+	/**
+	 * @param shared the shared to set
+	 */
+	public void setShared(String shared) {
+		this.shared = shared;
+	}
 
-    /**
-     * @param path
-     *            the path to set
-     */
-    public void setPath(String path) {
-        this.path = path;
-    }
+	/**
+	 * @return the publicName
+	 */
+	public String getPublicName() {
+		return this.publicName;
+	}
 
-    /**
-     * @return the shared
-     */
-    public String getShared() {
-        return this.shared;
-    }
+	/**
+	 * @param publicName the publicName to set
+	 */
+	public void setPublicName(String publicName) {
+		this.publicName = publicName;
+	}
 
-    /**
-     * @param shared
-     *            the shared to set
-     */
-    public void setShared(String shared) {
-        this.shared = shared;
-    }
+	/**
+	 * @return the showComments
+	 */
+	public String getShowComments() {
+		return this.showComments;
+	}
 
-    /**
-     * @return the publicName
-     */
-    public String getPublicName() {
-        return this.publicName;
-    }
+	/**
+	 * @param showComments the showComments to set
+	 */
+	public void setShowComments(String showComments) {
+		this.showComments = showComments;
+	}
 
-    /**
-     * @param publicName
-     *            the publicName to set
-     */
-    public void setPublicName(String publicName) {
-        this.publicName = publicName;
-    }
+	/**
+	 * @return the parentFolderId
+	 */
+	public String getParentFolderId() {
+		return getParentId();
+	}
 
-    /**
-     * @return the showComments
-     */
-    public String getShowComments() {
-        return this.showComments;
-    }
+	/**
+	 * @param parentFolderId the parentFolderId to set
+	 */
+	public void setParentFolderId(String parentFolderId) {
+		setParentId(parentFolderId);
+	}
 
-    /**
-     * @param showComments
-     *            the showComments to set
-     */
-    public void setShowComments(String showComments) {
-        this.showComments = showComments;
-    }
+	/**
+	 * @return the password
+	 */
+	public String getPassword() {
+		return this.password;
+	}
 
-    /**
-     * @return the parentFolderId
-     */
-    public String getParentFolderId() {
-        return this.parentFolderId;
-    }
+	/**
+	 * @param password the password to set
+	 */
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    /**
-     * @param parentFolderId
-     *            the parentFolderId to set
-     */
-    public void setParentFolderId(String parentFolderId) {
-        this.parentFolderId = parentFolderId;
-    }
+	/**
+	 * @return the checksum
+	 */
+	public String getChecksum() {
+		return this.checksum;
+	}
 
-    /**
-     * @return the password
-     */
-    public String getPassword() {
-        return this.password;
-    }
+	/**
+	 * @param checksum the checksum to set
+	 */
+	public void setChecksum(String checksum) {
+		this.checksum = checksum;
+	}
 
-    /**
-     * @param password
-     *            the password to set
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	/**
+	 * @return the hasCollaborators
+	 */
+	public String getHasCollaborators() {
+		return this.hasCollaborators;
+	}
 
-    /**
-     * @return the checksum
-     */
-    public String getChecksum() {
-        return this.checksum;
-    }
+	/**
+	 * @param hasCollaborators the hasCollaborators to set
+	 */
+	public void setHasCollaborators(String hasCollaborators) {
+		this.hasCollaborators = hasCollaborators;
+	}
 
-    /**
-     * @param checksum
-     *            the checksum to set
-     */
-    public void setChecksum(String checksum) {
-        this.checksum = checksum;
-    }
+	@Override
+	public boolean isFolder() {
+		return true;
+	}
 
-    /**
-     * @return the hasCollaborators
-     */
-    public String getHasCollaborators() {
-        return this.hasCollaborators;
-    }
+	@Override
+	public void setFolder(boolean isFolder) {
+		setFolder(true);
+	}
 
-    /**
-     * @param hasCollaborators
-     *            the hasCollaborators to set
-     */
-    public void setHasCollaborators(String hasCollaborators) {
-        this.hasCollaborators = hasCollaborators;
-    }
 }

@@ -111,4 +111,16 @@ public interface BoxAbstractFile extends Serializable {
      *            the tags to set
      */
     public void setTags(List tags);
+
+    /**
+     * @return the parent folder id of this file/folder, <code>"0"</code> indicates the root folder
+     * @since 1.4.1
+     */
+    public String getParentId();
+
+    /**
+     * @param parentId the parent folder id
+     * @since 1.4.1
+     */
+    public void setParentId(String parentId);
 }
