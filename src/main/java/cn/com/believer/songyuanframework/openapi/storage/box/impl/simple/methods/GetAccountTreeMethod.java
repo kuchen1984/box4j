@@ -200,7 +200,6 @@ public class GetAccountTreeMethod extends BaseBoxMethod {
      */
     private void recursiveOnFolder(Element folderElm, DefaultMutableTreeNode parentTreeNode) {
         BoxAbstractFile fileItem = BoxObjectFactory.createBoxAbstractFile();
-        fileItem.setFolder(true);
         fileItem.setId(folderElm.attribute("id").getText());
         if (folderElm.attribute("created") != null && !"".equals(folderElm.attribute("created").getText())) {
             fileItem.setCreated(Long.parseLong(folderElm.attribute("created").getText()));
@@ -215,6 +214,10 @@ public class GetAccountTreeMethod extends BaseBoxMethod {
         }
         if (folderElm.attribute("updated") != null && !"".equals(folderElm.attribute("updated").getText())) {
             fileItem.setUpdated(Long.parseLong(folderElm.attribute("updated").getText()));
+        }
+        if (parentTreeNode.getParent() != null) {
+        	BoxAbstractFile parentFileItem = (BoxAbstractFile) ((DefaultMutableTreeNode) parentTreeNode.getParent()).getUserObject();
+        	fileItem.setParentId(parentFileItem.getId());
         }
         parentTreeNode.setUserObject(fileItem);
 

@@ -158,6 +158,7 @@ public class CreateFolderMethod extends BaseBoxMethod {
                             .element(BoxConstant.PARAM_NAME_FOLDER);
                     BoxFolder soapFolder = ConverterUtils
                             .toBoxFolder(folderElm);
+                    soapFolder.setParentFolderId(parentFolderId);
                     createFolderResponse.setFolder(soapFolder);
                 }
             } catch (DocumentException e) {
